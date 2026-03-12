@@ -27,6 +27,7 @@
   --danger:        #f87171;
   --sidebar-width: 260px;
   --content-max:   720px;
+  --toc-rail-w:    220px;
   --radius:        6px;
   --font-mono:     'SF Mono', 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
   --font:          -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -75,12 +76,155 @@ body {
   margin-left: var(--sidebar-width);
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .content-area {
+  flex: 1;
+  padding: 3rem 2rem 4rem;
+}
+
+/* Home page gets centered max-width */
+.home-content {
   max-width: var(--content-max);
   margin: 0 auto;
-  padding: 3rem 2rem 6rem;
+}
+
+/* ============================================================
+   Page wrapper (content pages with right-rail TOC)
+   ============================================================ */
+
+.page-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: calc(var(--content-max) + 3rem + var(--toc-rail-w));
+  margin: 0 auto;
+}
+
+.page-content {
+  flex: 1;
+  min-width: 0;
+  max-width: var(--content-max);
+}
+
+/* Inline TOC visible by default, hidden on desktop when rail is present */
+.toc-inline {
+  display: block;
+}
+
+/* Right-rail TOC — hidden on mobile */
+.toc-rail {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .toc-rail {
+    display: block;
+    width: var(--toc-rail-w);
+    flex-shrink: 0;
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+
+  .toc-inline {
+    display: none;
+  }
+
+  /* When rail is present, page-content can use full width */
+  .page-wrapper .page-content {
+    max-width: var(--content-max);
+  }
+}
+
+/* ============================================================
+   Prev/Next navigation
+   ============================================================ */
+
+.prevnext {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.prevnext-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s, background 0.15s;
+  min-width: 0;
+}
+
+.prevnext-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-hover);
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.prevnext-next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.prevnext-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.prevnext-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+}
+
+.prevnext-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prevnext-arrow {
+  font-size: 1.1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Site footer
+   ============================================================ */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 2rem;
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
 }
 
 /* ============================================================
@@ -205,7 +349,7 @@ body {
 
 .nav-link:hover {
   color: var(--text);
-  background: var(--bg-hover);
+  background: #252d3d;
 }
 
 .nav-link.active {
@@ -294,14 +438,14 @@ body {
 .content-area h3 {
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--text);
+  color: #e2e8f0;
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
   scroll-margin-top: 1.5rem;
 }
 
 .content-area p {
-  color: var(--text);
+  color: #cbd5e1;
   margin-bottom: 1rem;
 }
 
@@ -317,6 +461,7 @@ body {
 
 .content-area li {
   margin-bottom: 0.35rem;
+  color: #cbd5e1;
 }
 
 .content-area a {
@@ -438,6 +583,7 @@ td {
   padding: 0.55rem 1rem;
   border-bottom: 1px solid var(--border-light);
   vertical-align: middle;
+  color: #cbd5e1;
 }
 
 tbody tr:last-child td {
@@ -493,6 +639,25 @@ tbody tr:hover {
 }
 
 .callout-body p:last-child { margin-bottom: 0; }
+
+/* Standout callout — for highlighted quotes */
+.callout-standout {
+  background: rgba(79, 110, 247, 0.06);
+  border: 1px solid rgba(79, 110, 247, 0.25);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.callout-standout p {
+  margin: 0;
+  color: var(--text);
+}
 
 /* ============================================================
    Checklist
@@ -583,6 +748,11 @@ details[open] summary {
   font-size: 0.85rem;
 }
 
+/* In the right rail, remove bottom margin */
+.toc-rail .toc {
+  margin-bottom: 0;
+}
+
 .toc-title {
   font-size: 0.7rem;
   font-weight: 700;
@@ -662,10 +832,7 @@ details[open] summary {
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: 1rem;
-}
-
-.home-hero h1 span {
-  color: var(--accent);
+  color: var(--text);
 }
 
 .home-hero p {
@@ -813,7 +980,7 @@ a[target="_blank"]::after {
   }
 
   .content-area {
-    padding: 4.5rem 1.25rem 4rem;
+    padding: 4.5rem 1.25rem 3rem;
   }
 
   .sidebar-toggle {
@@ -835,6 +1002,14 @@ a[target="_blank"]::after {
   }
 
   .content-area h1 { font-size: 1.6rem; }
+
+  .prevnext {
+    flex-direction: column;
+  }
+
+  .prevnext-card {
+    width: 100%;
+  }
 }
 
 /* ============================================================

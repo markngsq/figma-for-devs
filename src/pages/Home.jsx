@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PrevNext from '../components/PrevNext'
 
 const sections = [
   {
@@ -29,33 +30,33 @@ const sections = [
     path: '/developer-mode',
     num: '05',
     title: 'Developer Mode',
-    desc: 'Read-only view with implementation values. How to inspect components properly.',
+    desc: 'Inspect components, read spacing values, and copy exact CSS properties without editing anything.',
   },
   {
     path: '/code-export',
     num: '06',
     title: 'Code Export & Working with Code',
-    desc: 'The CSS panel, copying hex values, exporting assets, design tokens.',
+    desc: 'Copy hex values, export assets, read CSS output, and understand how design tokens map to code.',
   },
   {
     path: '/best-practices',
     num: '07',
     title: 'Best Practices for Clean Handoff',
-    desc: 'Layer naming, organisation, the handoff checklist. Files that don\'t waste mornings.',
+    desc: 'Layer naming, Auto Layout discipline, and the checklist that makes handoff not a nightmare.',
   },
   {
     path: '/vibe-coding',
     num: '08',
     title: 'AI Tools & Vibe Coding Workflow',
-    desc: 'From Figma to working code with AI. Tools, prompts, and where the workflow breaks.',
+    desc: 'From Figma to working code in hours. The workflow, the tools, and the honest caveats.',
   },
 ]
 
 export default function Home() {
   return (
-    <>
+    <div className="home-content">
       <div className="home-hero">
-        <h1>Figma for <span>Devs</span></h1>
+        <h1>Figma for Devs</h1>
         <p>
           A practical guide for developers making the transition into product design.
           Written to be read, not watched.
@@ -81,11 +82,7 @@ export default function Home() {
         ))}
       </div>
 
-      <hr className="section-divider" />
-
-      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-        Content by Skald. Built with React + Vite. Deployed on GitHub Pages.
-      </p>
-    </>
+      <PrevNext />
+    </div>
   )
 }

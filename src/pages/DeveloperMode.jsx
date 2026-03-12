@@ -1,4 +1,4 @@
-import TableOfContents from '../components/TableOfContents'
+import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
 
 const toc = [
@@ -10,24 +10,20 @@ const toc = [
 
 export default function DeveloperMode() {
   return (
-    <>
+    <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">05 — Developer Mode</div>
         <h1>Developer Mode</h1>
         <p className="page-subtitle">
           A dedicated view optimised for implementation — reading designs, not editing them.
-          This is where you should spend most of your time in Figma.
+          This is where you'll do most of your implementation work.
         </p>
       </div>
 
-      <TableOfContents items={toc} />
-
       <p>
-        Developer Mode is a dedicated view of Figma optimised for implementation — reading designs,
-        not editing them.
+        Most devs open Figma in design mode by default and get lost in editing controls. Switch to
+        Dev Mode and the interface reorganises itself around what you actually need: values, not handles.
       </p>
-
-      <hr className="section-divider" />
 
       <h2 id="turning-on">
         Turning it on
@@ -37,7 +33,7 @@ export default function DeveloperMode() {
       <ul>
         <li>Toggle in the toolbar (top right)</li>
         <li>Shortcut: <kbd>Cmd</kbd> + <kbd>Opt</kbd> + <kbd>D</kbd></li>
-        <li>In view-only mode, it's the default when you don't have edit access</li>
+        <li>If you only have view access to a file, Dev Mode is enabled by default.</li>
       </ul>
 
       <hr className="section-divider" />
@@ -53,6 +49,7 @@ export default function DeveloperMode() {
         <li>The right panel shows implementation-relevant values: spacing, font specs, border radius, shadow values</li>
         <li>Components are highlighted with their names</li>
         <li>You get a direct path to the code panel</li>
+        <li>Frames marked <strong>Ready for development</strong> show a green status badge — if a frame isn't marked, it may still be in progress.</li>
       </ul>
 
       <Callout type="tip">
@@ -125,6 +122,6 @@ export default function DeveloperMode() {
           receiving a handoff: check for annotations before assuming a spec is incomplete.
         </p>
       </Callout>
-    </>
+    </PageLayout>
   )
 }

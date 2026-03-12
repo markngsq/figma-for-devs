@@ -1,4 +1,4 @@
-import TableOfContents from '../components/TableOfContents'
+import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
 
 const toc = [
@@ -11,7 +11,7 @@ const toc = [
 
 export default function GettingAround() {
   return (
-    <>
+    <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">02 — Navigation</div>
         <h1>Getting Around Figma Design</h1>
@@ -19,8 +19,6 @@ export default function GettingAround() {
           The layout, the panels, keyboard shortcuts, and how to stay oriented in big files.
         </p>
       </div>
-
-      <TableOfContents items={toc} />
 
       <h2 id="panels">
         The Three Panels
@@ -141,6 +139,7 @@ export default function GettingAround() {
               ['Opt + hover',       'Show spacing between elements'],
               ['Cmd + /',           'Quick actions (search for any command)'],
               ['Cmd + P',           'Search files, pages, layers'],
+              ['Cmd + F',           'Search layers by name, type, or property'],
               ['Space + drag',      'Pan the canvas'],
               ['Cmd + 0',           'Zoom to 100%'],
               ['Shift + 1',         'Fit page to screen'],
@@ -171,12 +170,13 @@ export default function GettingAround() {
       </h2>
 
       <ul>
-        <li><kbd>Shift</kbd> + <kbd>1</kbd> fits everything to screen; <kbd>Shift</kbd> + <kbd>2</kbd> zooms to selection</li>
         <li>Click a layer in the Layers panel to select it; double-click to zoom to it</li>
         <li><kbd>Cmd</kbd> + <kbd>F</kbd> to search layers by name, type, or property</li>
         <li>Mini map in the bottom-right shows your position in the full file</li>
-        <li>Pages should tell you where different sections live — if the file is a mess, that's a handoff problem</li>
+        <li>Pages should tell you where different sections live</li>
       </ul>
-    </>
+
+      <p>With navigation sorted, the concepts below are what make Figma actually readable.</p>
+    </PageLayout>
   )
 }

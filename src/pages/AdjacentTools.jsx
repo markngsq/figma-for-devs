@@ -1,5 +1,6 @@
-import TableOfContents from '../components/TableOfContents'
+import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import { Link } from 'react-router-dom'
 
 const toc = [
   { id: 'figjam',       label: 'FigJam',       level: 2 },
@@ -9,7 +10,7 @@ const toc = [
 
 export default function AdjacentTools() {
   return (
-    <>
+    <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">04 — Adjacent Tools</div>
         <h1>Key Adjacent Tools</h1>
@@ -18,8 +19,6 @@ export default function AdjacentTools() {
           Each one has a distinct job.
         </p>
       </div>
-
-      <TableOfContents items={toc} />
 
       <h2 id="figjam">
         FigJam
@@ -35,7 +34,8 @@ export default function AdjacentTools() {
       </ul>
 
       <p>
-        Features: sticky notes, connectors (with arrow types), shapes, stamps, cursor chat, and
+        Features: sticky notes, connectors (with arrow types), shapes, stamps,
+        cursor chat (live presence and reactions during multiplayer sessions), and
         templates for common workshop formats.
       </p>
 
@@ -92,6 +92,11 @@ export default function AdjacentTools() {
           A static screen shows <em>what</em>; a prototype shows <em>how</em>.
         </p>
       </Callout>
-    </>
+
+      <p style={{ marginTop: '2rem' }}>
+        Next up: <Link to="/developer-mode">Developer Mode →</Link> — where you'll do most of your
+        implementation work.
+      </p>
+    </PageLayout>
   )
 }

@@ -1,14 +1,14 @@
-import TableOfContents from '../components/TableOfContents'
+import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
 
 const toc = [
-  { id: 'what-is',      label: 'What Vibe Coding Actually Means',     level: 2 },
-  { id: 'workflow',     label: 'The Basic Workflow',                   level: 2 },
-  { id: 'good-at',      label: 'What AI Code Gen Is Good At',          level: 2 },
-  { id: 'struggles',    label: 'Where It Struggles',                   level: 2 },
-  { id: 'better-prompts', label: 'Writing Better UI Prompts',          level: 2 },
-  { id: 'tools',        label: 'Tools to Try',                         level: 2 },
-  { id: 'caveat',       label: 'The Honest Caveat',                    level: 2 },
+  { id: 'what-is',        label: 'What Vibe Coding Actually Means',     level: 2 },
+  { id: 'workflow',       label: 'The Basic Workflow',                   level: 2 },
+  { id: 'good-at',        label: 'What AI Code Gen Is Good At',          level: 2 },
+  { id: 'struggles',      label: 'Where It Struggles',                   level: 2 },
+  { id: 'better-prompts', label: 'Writing Better UI Prompts',            level: 2 },
+  { id: 'tools',          label: 'Tools to Try',                         level: 2 },
+  { id: 'caveat',         label: 'The Honest Caveat',                    level: 2 },
 ]
 
 const tools = [
@@ -33,6 +33,11 @@ const tools = [
     url: 'https://bolt.new',
   },
   {
+    name: 'Lovable',
+    best: 'Full-stack React app builder from prompts; growing fast in 2025, strong for complete apps',
+    url: 'https://lovable.dev',
+  },
+  {
     name: 'Figma AI',
     best: 'Built-in AI features: auto-rename layers, generate placeholder content, first-pass design suggestions',
     url: null,
@@ -41,7 +46,7 @@ const tools = [
 
 export default function VibeCoding() {
   return (
-    <>
+    <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">08 — AI Tools</div>
         <h1>AI Tools & Vibe Coding Workflow</h1>
@@ -50,8 +55,6 @@ export default function VibeCoding() {
           at, and where you still need to pay attention.
         </p>
       </div>
-
-      <TableOfContents items={toc} />
 
       <h2 id="what-is">
         What Vibe Coding Actually Means
@@ -231,13 +234,12 @@ export default function VibeCoding() {
         to eliminate the boring scaffolding work, not to replace judgment.
       </p>
 
-      <Callout type="warning">
+      <div className="callout-standout">
         <p>
-          The best mental model: AI is a very fast junior developer who will do exactly what you
-          ask, confidently, even when what you asked was slightly wrong. You still need to review
-          the output.
+          AI is a very fast junior developer who will do exactly what you ask, confidently, even
+          when what you asked was slightly wrong. You still need to review the output.
         </p>
-      </Callout>
-    </>
+      </div>
+    </PageLayout>
   )
 }

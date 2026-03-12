@@ -1,5 +1,6 @@
-import TableOfContents from '../components/TableOfContents'
+import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import { Link } from 'react-router-dom'
 
 const toc = [
   { id: 'code-panel',    label: 'The Code Panel',           level: 2 },
@@ -11,7 +12,7 @@ const toc = [
 
 export default function CodeExport() {
   return (
-    <>
+    <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">06 — Code Export</div>
         <h1>Code Export & Working with Code</h1>
@@ -20,8 +21,6 @@ export default function CodeExport() {
           Figma and your codebase.
         </p>
       </div>
-
-      <TableOfContents items={toc} />
 
       <h2 id="code-panel">
         The Code Panel
@@ -36,7 +35,7 @@ export default function CodeExport() {
       <ul>
         <li><strong>CSS</strong> — properties like <code>background</code>, <code>border-radius</code>, <code>font-size</code>, <code>box-shadow</code></li>
         <li><strong>iOS (Swift/SwiftUI)</strong> — colour and text style references</li>
-        <li><strong>Android (XML/Compose)</strong> — similarly</li>
+        <li><strong>Android (XML/Compose)</strong> — colour values, text styles, and dimension references.</li>
       </ul>
 
       <p>Switch between platforms using the dropdown at the top of the Code panel.</p>
@@ -154,6 +153,11 @@ export default function CodeExport() {
           system, push for Variables from day one.
         </p>
       </Callout>
-    </>
+
+      <p style={{ marginTop: '2rem' }}>
+        Next: <Link to="/best-practices">Best Practices for Clean Handoff →</Link> — layer naming,
+        organisation, and the checklist that keeps mornings intact.
+      </p>
+    </PageLayout>
   )
 }

@@ -1,16 +1,18 @@
-import TableOfContents from '../components/TableOfContents'
+import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
 
 const toc = [
-  { id: 'auto-layout',  label: 'Auto Layout',             level: 2 },
-  { id: 'components',   label: 'Components and Instances', level: 2 },
-  { id: 'styles-vars',  label: 'Styles and Variables',     level: 2 },
-  { id: 'constraints',  label: 'Constraints',              level: 2 },
+  { id: 'auto-layout',   label: 'Auto Layout',              level: 2 },
+  { id: 'components',    label: 'Components and Instances',  level: 2 },
+  { id: 'variants',      label: 'Variants',                  level: 3 },
+  { id: 'comp-props',    label: 'Component Properties',      level: 3 },
+  { id: 'styles-vars',   label: 'Styles and Variables',      level: 2 },
+  { id: 'constraints',   label: 'Constraints',               level: 2 },
 ]
 
 export default function CoreConcepts() {
   return (
-    <>
+    <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">03 — Core Concepts</div>
         <h1>Core Design Concepts</h1>
@@ -18,8 +20,6 @@ export default function CoreConcepts() {
           The four things you need to understand to actually read a Figma file the way it was intended.
         </p>
       </div>
-
-      <TableOfContents items={toc} />
 
       <h2 id="auto-layout">
         Auto Layout
@@ -82,6 +82,21 @@ export default function CoreConcepts() {
       <Callout type="tip">
         <p>Right-click any instance → "Go to main component" to jump to the master.</p>
       </Callout>
+
+      <h3 id="variants">Variants</h3>
+      <p>
+        <strong>Variants</strong> are grouped component states defined in the master. A Button might
+        have variants for <code>primary/secondary</code> and <code>default/hover/disabled</code>. In
+        Dev Mode you'll see which variant is selected. Think of it as a component where named props
+        control which visual state renders.
+      </p>
+
+      <h3 id="comp-props">Component Properties</h3>
+      <p>
+        Newer Figma files use <strong>Component Properties</strong> — named inputs on the master
+        (text, boolean, instance-swap). These appear in the right panel when you select an instance
+        and map directly to the props you'd pass in code.
+      </p>
 
       <hr className="section-divider" />
 
@@ -148,9 +163,15 @@ export default function CoreConcepts() {
       </div>
 
       <p>
-        Auto Layout largely supersedes constraints for components, but constraints matter for
-        elements in non-Auto Layout frames.
+        In practice: if a file uses Auto Layout throughout, you'll rarely need to touch constraints.
+        They matter mainly in legacy files or when pinning a fixed element (like a sticky header)
+        inside a non-Auto Layout parent.
       </p>
-    </>
+
+      <p>
+        These four concepts — Auto Layout, Components, Styles/Variables, and Constraints — cover
+        the vast majority of what you'll encounter when inspecting a well-built Figma file.
+      </p>
+    </PageLayout>
   )
 }

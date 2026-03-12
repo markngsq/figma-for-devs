@@ -45,6 +45,10 @@ export default function Layout({ children }) {
         <div className="content-area">
           {children}
         </div>
+
+        <footer className="site-footer">
+          <p>Written by Mark · Built with React + Vite · Deployed on GitHub Pages</p>
+        </footer>
       </main>
     </div>
   )

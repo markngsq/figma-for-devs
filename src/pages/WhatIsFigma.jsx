@@ -1,5 +1,6 @@
-import TableOfContents from '../components/TableOfContents'
+import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import { Link } from 'react-router-dom'
 
 const toc = [
   { id: 'overview',       label: 'Overview',       level: 2 },
@@ -10,16 +11,14 @@ const toc = [
 
 export default function WhatIsFigma() {
   return (
-    <>
+    <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">01 — Foundation</div>
         <h1>What Figma Actually Is</h1>
         <p className="page-subtitle">
-          The cloud-based design tool, its three main surfaces, and what you'll actually be using day-to-day.
+          The three main surfaces, and which one you'll actually live in.
         </p>
       </div>
-
-      <TableOfContents items={toc} />
 
       <h2 id="overview">Overview</h2>
       <p>
@@ -43,7 +42,7 @@ export default function WhatIsFigma() {
         work to developers. If someone says "open the Figma file," they mean this.
       </p>
       <Callout type="tip">
-        <p>This guide is almost entirely about Figma Design. The other two surfaces are covered in <strong>Key Adjacent Tools</strong>.</p>
+        <p>This guide is about Figma Design. The other two surfaces are covered in <strong>Key Adjacent Tools</strong>.</p>
       </Callout>
 
       <hr className="section-divider" />
@@ -56,9 +55,9 @@ export default function WhatIsFigma() {
         A digital whiteboard. For messy thinking — brainstorming sessions, user journey maps,
         flowcharts, retrospectives. It has sticky notes, connectors, shapes, and templates.
       </p>
-      <Callout type="warning">
-        <p>Don't try to design actual screens in FigJam — it's not made for that.</p>
-      </Callout>
+      <p>
+        FigJam is for thinking, not designing — covered in <Link to="/adjacent-tools">Key Adjacent Tools</Link>.
+      </p>
 
       <hr className="section-divider" />
 
@@ -71,10 +70,14 @@ export default function WhatIsFigma() {
         Use it when presenting work to stakeholders who need a structured narrative, not just a canvas
         walk-through.
       </p>
-      <p>
-        For casual design reviews or internal walkthroughs, presenting directly from the canvas is
-        usually faster and more effective — it shows your actual working file.
+
+      <Callout type="tip">
+        <p>→ Covered in depth in <Link to="/adjacent-tools">Key Adjacent Tools</Link></p>
+      </Callout>
+
+      <p style={{ marginTop: '2rem' }}>
+        <Link to="/getting-around">Next: Getting Around Figma Design →</Link>
       </p>
-    </>
+    </PageLayout>
   )
 }

@@ -1,9 +1,10 @@
-import TableOfContents from '../components/TableOfContents'
+import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
 
 const toc = [
   { id: 'layer-naming',  label: 'Layer Naming',                 level: 2 },
   { id: 'organisation',  label: 'Organisation',                  level: 2 },
+  { id: 'messy-files',   label: 'When the File Is a Mess',       level: 2 },
   { id: 'checklist',     label: 'Before Handoff: Quick Checklist', level: 2 },
   { id: 'tech-note',     label: 'One Technical Note',            level: 2 },
 ]
@@ -20,7 +21,7 @@ const checklistItems = [
 
 export default function BestPractices() {
   return (
-    <>
+    <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">07 — Best Practices</div>
         <h1>Best Practices for Clean Handoff</h1>
@@ -29,8 +30,6 @@ export default function BestPractices() {
           your morning. Most of it is naming and organisation.
         </p>
       </div>
-
-      <TableOfContents items={toc} />
 
       <h2 id="layer-naming">
         Layer Naming
@@ -122,6 +121,20 @@ export default function BestPractices() {
 
       <hr className="section-divider" />
 
+      <h2 id="messy-files">
+        When the File Is a Mess
+        <a className="heading-anchor" href="#messy-files" aria-hidden="true">#</a>
+      </h2>
+
+      <p>
+        If you inherit a file where layers are unnamed and loose, that's a handoff problem from the
+        designer's side — but you still have to work with it. Use <kbd>Cmd</kbd> + <kbd>F</kbd> to
+        search layers by name, and check the Assets panel for components. The Inspect tab in the right
+        panel still gives you accurate values even in messy files.
+      </p>
+
+      <hr className="section-divider" />
+
       <h2 id="checklist">
         Before Handoff: A Quick Checklist
         <a className="heading-anchor" href="#checklist" aria-hidden="true">#</a>
@@ -151,6 +164,6 @@ export default function BestPractices() {
       <p>
         Select the layer and <kbd>Cmd</kbd> + <kbd>E</kbd> to flatten.
       </p>
-    </>
+    </PageLayout>
   )
 }
