@@ -1,15 +1,14 @@
 import { Link, useLocation } from 'react-router-dom'
 
 const pages = [
-  { path: '/',                label: 'Home' },
-  { path: '/what-is-figma',   label: 'What Figma Actually Is' },
-  { path: '/getting-around',  label: 'Getting Around Figma Design' },
-  { path: '/core-concepts',   label: 'Core Design Concepts' },
-  { path: '/adjacent-tools',  label: 'Key Adjacent Tools' },
-  { path: '/developer-mode',  label: 'Developer Mode' },
-  { path: '/code-export',     label: 'Code Export & Working with Code' },
-  { path: '/best-practices',  label: 'Best Practices for Clean Handoff' },
-  { path: '/vibe-coding',     label: 'AI Tools & Vibe Coding Workflow' },
+  { path: '/',               label: 'Home' },
+  { path: '/what-is-figma',  label: 'What Is Figma & Why Devs Need It' },
+  { path: '/getting-around', label: 'Getting Around Figma' },
+  { path: '/core-concepts',  label: 'Core Design Concepts' },
+  { path: '/developer-mode', label: 'Dev Mode' },
+  { path: '/code-panel',     label: 'Reading & Using the Code Panel' },
+  { path: '/clean-handoff',  label: 'Clean Handoff' },
+  { path: '/ai-workflows',   label: 'AI-Powered Workflows' },
 ]
 
 export default function PrevNext() {

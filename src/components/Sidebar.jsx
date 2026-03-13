@@ -1,18 +1,13 @@
 import { NavLink, Link } from 'react-router-dom'
 
-const navItems = [
-  { path: '/', label: 'Home', num: null },
-]
-
 const sections = [
-  { path: '/what-is-figma',  label: 'What Figma Actually Is',             num: '01' },
-  { path: '/getting-around', label: 'Getting Around Figma Design',         num: '02' },
-  { path: '/core-concepts',  label: 'Core Design Concepts',                num: '03' },
-  { path: '/adjacent-tools', label: 'Key Adjacent Tools',                  num: '04' },
-  { path: '/developer-mode', label: 'Developer Mode',                       num: '05' },
-  { path: '/code-export',    label: 'Code Export & Working with Code',      num: '06' },
-  { path: '/best-practices', label: 'Best Practices for Clean Handoff',     num: '07' },
-  { path: '/vibe-coding',    label: 'AI Tools & Vibe Coding',               num: '08' },
+  { path: '/what-is-figma',   label: 'What Is Figma & Why Devs Need It',  num: '01' },
+  { path: '/getting-around',  label: 'Getting Around Figma',               num: '02' },
+  { path: '/core-concepts',   label: 'Core Design Concepts',               num: '03' },
+  { path: '/developer-mode',  label: 'Dev Mode',                           num: '04' },
+  { path: '/code-panel',      label: 'Reading & Using the Code Panel',     num: '05' },
+  { path: '/clean-handoff',   label: 'Clean Handoff',                      num: '06' },
+  { path: '/ai-workflows',    label: 'AI-Powered Workflows',               num: '07' },
 ]
 
 export default function Sidebar({ onClose }) {

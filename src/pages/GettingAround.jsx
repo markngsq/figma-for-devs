@@ -2,11 +2,9 @@ import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
 
 const toc = [
-  { id: 'panels',         label: 'The Three Panels',                    level: 2 },
-  { id: 'pages-frames',   label: 'Pages vs Frames vs Groups',           level: 2 },
-  { id: 'toolbar',        label: 'The Toolbar',                         level: 2 },
-  { id: 'shortcuts',      label: 'Keyboard Shortcuts That Actually Matter', level: 2 },
-  { id: 'navigating',     label: 'Navigating Large Files',              level: 2 },
+  { id: 'three-traps',      label: 'The Three Traps',         level: 2 },
+  { id: 'shortcuts',        label: 'Essential Shortcuts',     level: 2 },
+  { id: 'pages-frames',     label: 'Pages, Frames & Groups',  level: 2 },
 ]
 
 export default function GettingAround() {
@@ -14,169 +12,138 @@ export default function GettingAround() {
     <PageLayout toc={toc}>
       <div className="page-header">
         <div className="page-badge">02 — Navigation</div>
-        <h1>Getting Around Figma Design</h1>
+        <h1>Getting Around Figma</h1>
         <p className="page-subtitle">
-          The layout, the panels, keyboard shortcuts, and how to stay oriented in big files.
+          Three traps, eight shortcuts, and the frames-vs-groups distinction you need to know.
         </p>
       </div>
 
-      <h2 id="panels">
-        The Three Panels
-        <a className="heading-anchor" href="#panels" aria-hidden="true">#</a>
+      <p>
+        Three things trip developers up in their first hour in Figma. Here's how to avoid them.
+      </p>
+
+      <hr className="section-divider" />
+
+      <h2 id="three-traps">
+        The Three Traps
+        <a className="heading-anchor" href="#three-traps" aria-hidden="true">#</a>
       </h2>
 
-      <h3>Left panel — Layers and Assets</h3>
+      <h3>Trap 1: Zoomed Out and Lost</h3>
       <p>
-        Your file tree. The <strong>Layers</strong> tab shows every element on the current page,
-        nested like a folder structure. The <strong>Assets</strong> tab shows components, styles,
-        and local variables.
+        The Figma canvas is infinite. There's no edge, no boundary. Designers frequently work across
+        multiple pages and have frames scattered at different zoom levels. If you open a file and see
+        a grey void, or a tiny cluster of shapes in the distance, you've probably hit scroll-drift —
+        accidental zooming or panning that's left you somewhere empty.
+      </p>
+      <p>
+        Hit <strong>Shift+1</strong> to zoom-to-fit the entire page. Everything snaps back into view
+        immediately. If you want to fit just one selected frame, <strong>Shift+2</strong> does that.
+        Keep these shortcuts in muscle memory from day one — they'll save you more confusion than
+        you'd expect.
       </p>
 
-      <h3>Centre — The Canvas</h3>
+      <h3>Trap 2: The Canvas Lies</h3>
       <p>
-        Where everything lives. Infinite in every direction. Navigate by scrolling, pinching
-        (trackpad), or zooming with shortcuts.
+        What you see on the canvas is not necessarily everything in the file. Layers can be hidden
+        with a visibility toggle (the eye icon in the layers panel). Elements can live off-canvas,
+        outside the frame bounds but still technically present in the layer tree. A designer working
+        fast will sometimes leave stray objects, hidden states, or in-progress components floating
+        somewhere you can't see.
+      </p>
+      <p>
+        When you're inspecting a component and something doesn't make sense — an unexpected layer, a
+        weird bounding box, a value that doesn't match what you're seeing — open the layers panel on
+        the left and look at what's actually there. It's the equivalent of inspecting the DOM. Trust
+        the panel over the visual.
       </p>
 
-      <h3>Right panel — Design and Inspect</h3>
+      <h3>Trap 3: Can't Find a Feature</h3>
       <p>
-        Context-sensitive. When something is selected, shows that element's properties: position,
-        dimensions, fill, stroke, effects. Two tabs: <strong>Design</strong> (for editing) and
-        <strong> Inspect</strong> (for reading values).
+        Figma's right-click menus and toolbar options change based on context — what's selected, what
+        mode you're in, what type of object you've clicked. If you're looking for something and can't
+        find it, hit <strong>Cmd+/</strong> (Mac) or <strong>Ctrl+/</strong> (Windows). This opens a
+        universal search across all Figma actions, settings, and help articles. It's your escape hatch.
+      </p>
+
+      <hr className="section-divider" />
+
+      <h2 id="shortcuts">
+        Essential Shortcuts — Learn These, Skip the Rest
+        <a className="heading-anchor" href="#shortcuts" aria-hidden="true">#</a>
+      </h2>
+
+      <table className="data-table">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Mac</th>
+            <th>Windows</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Zoom to fit page</td><td>Shift+1</td><td>Shift+1</td></tr>
+          <tr><td>Zoom to selection</td><td>Shift+2</td><td>Shift+2</td></tr>
+          <tr><td>Zoom in / out</td><td>Cmd++ / Cmd+–</td><td>Ctrl++ / Ctrl+–</td></tr>
+          <tr><td>Hand tool (pan)</td><td>Space+drag</td><td>Space+drag</td></tr>
+          <tr><td>Command palette</td><td>Cmd+/</td><td>Ctrl+/</td></tr>
+          <tr><td>Select all</td><td>Cmd+A</td><td>Ctrl+A</td></tr>
+          <tr><td>Toggle Dev Mode</td><td>Cmd+Opt+D</td><td>Ctrl+Alt+D</td></tr>
+          <tr><td>Show/hide layers panel</td><td>Cmd+\</td><td>Ctrl+\</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Don't try to memorise Figma's full shortcut list on day one. These eight are enough to stay
+        unblocked.
       </p>
 
       <hr className="section-divider" />
 
       <h2 id="pages-frames">
-        Pages vs Frames vs Groups
+        Pages vs Frames vs Groups — and Why It Matters
         <a className="heading-anchor" href="#pages-frames" aria-hidden="true">#</a>
       </h2>
-
       <p>
-        <strong>Pages</strong> — Like tabs in a file. Use them to separate stages of work or
-        different sections of a product.
+        Figma files are organised into <strong>pages</strong> (tabs at the top of the layers panel —
+        think of them like separate canvases). Inside a page, the main structural units are{' '}
+        <strong>frames</strong> and <strong>groups</strong>.
       </p>
       <p>
-        <strong>Frames</strong> — The containers your designs live in. Like an artboard with defined
-        dimensions. Supports Auto Layout, constraints, clip content. Most things you design should be
-        inside a frame.
+        A <strong>frame</strong> is the thing that matters. It's equivalent to a <code>{'<div>'}</code>{' '}
+        with a fixed or auto-calculated size. Frames clip their contents, support Auto Layout
+        (Figma's flexbox — covered in Section 3), have padding properties, and show up in the
+        prototype flow. Most of the time when you're inspecting a design, you're looking inside frames.
       </p>
       <p>
-        <strong>Groups</strong> — Lightweight bundling of layers. Use when you need to move things
-        together but don't need frame behaviour. If you're fighting a group, you probably want a frame.
+        A <strong>group</strong> is a loose collection of layers bundled together for convenience.
+        Groups don't have independent layout rules — they just wrap their children. This makes them
+        awkward: resizing a group rescales everything inside it rather than reflowing content. They're
+        useful for organising flat assets but terrible for structured layouts.
+      </p>
+      <p>
+        The practical implication: if you're clicking around a component and can't figure out why
+        resizing behaves unexpectedly, or why properties look wrong, check whether you're inside a
+        group. If you are, the designer probably should have used a frame. You can fix this yourself
+        in editor mode — select the group, right-click, Ungroup, then Frame Selection. But in viewer
+        mode, just note it as a design hygiene issue and raise it.
       </p>
 
       <Callout type="tip">
-        <p>Default to <strong>Frames</strong> over Groups whenever layout matters.</p>
+        If you're fighting a group, you want a frame.
       </Callout>
 
       <hr className="section-divider" />
 
-      <h2 id="toolbar">
-        The Toolbar
-        <a className="heading-anchor" href="#toolbar" aria-hidden="true">#</a>
-      </h2>
-
-      <div className="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Shortcut</th>
-              <th>Tool</th>
-              <th>What it does</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              ['V', 'Move',       'Select and move elements. Your default.'],
-              ['K', 'Scale',      'Scale proportionally (affects content too).'],
-              ['F', 'Frame',      'Draw a new frame.'],
-              ['R', 'Rectangle',  'Draw a rectangle.'],
-              ['O', 'Ellipse',    'Draw a circle or ellipse.'],
-              ['L', 'Line',       'Draw a line.'],
-              ['P', 'Pen',        'Vector pen tool for custom shapes.'],
-              ['T', 'Text',       'Create a text layer.'],
-              ['H', 'Hand',       'Pan without selecting (Space does this temporarily).'],
-              ['I', 'Eyedropper', 'Pick a colour from anywhere on screen.'],
-              ['C', 'Comment',    'Leave a comment on the canvas.'],
-            ].map(([key, tool, desc]) => (
-              <tr key={key}>
-                <td><kbd>{key}</kbd></td>
-                <td><strong>{tool}</strong></td>
-                <td>{desc}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <hr className="section-divider" />
-
-      <h2 id="shortcuts">
-        Keyboard Shortcuts That Actually Matter
-        <a className="heading-anchor" href="#shortcuts" aria-hidden="true">#</a>
-      </h2>
-
-      <div className="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Shortcut</th>
-              <th>What it does</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              ['Cmd + Z',           'Undo'],
-              ['Cmd + D',           'Duplicate in place'],
-              ['Cmd + G',           'Group selected layers'],
-              ['Cmd + Opt + G',     'Frame selection'],
-              ['Cmd + Shift + G',   'Ungroup'],
-              ['Cmd + [ / ]',       'Move layer backward/forward'],
-              ['Cmd + Shift + [ / ]', 'Send to back / bring to front'],
-              ['Cmd + Opt + K',     'Create component'],
-              ['Opt + drag',        'Copy while dragging'],
-              ['Opt + hover',       'Show spacing between elements'],
-              ['Cmd + /',           'Quick actions (search for any command)'],
-              ['Cmd + P',           'Search files, pages, layers'],
-              ['Cmd + F',           'Search layers by name, type, or property'],
-              ['Space + drag',      'Pan the canvas'],
-              ['Cmd + 0',           'Zoom to 100%'],
-              ['Shift + 1',         'Fit page to screen'],
-              ['Shift + 2',         'Fit selection to screen'],
-              ['Shift + R',         'Toggle rulers'],
-            ].map(([shortcut, desc]) => (
-              <tr key={shortcut}>
-                <td>
-                  {shortcut.split(' + ').map((part, i, arr) => (
-                    <span key={i}>
-                      <kbd>{part}</kbd>
-                      {i < arr.length - 1 && <span style={{ color: 'var(--text-faint)', margin: '0 2px' }}>+</span>}
-                    </span>
-                  ))}
-                </td>
-                <td>{desc}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <hr className="section-divider" />
-
-      <h2 id="navigating">
-        Navigating Large Files
-        <a className="heading-anchor" href="#navigating" aria-hidden="true">#</a>
-      </h2>
-
-      <ul>
-        <li>Click a layer in the Layers panel to select it; double-click to zoom to it</li>
-        <li><kbd>Cmd</kbd> + <kbd>F</kbd> to search layers by name, type, or property</li>
-        <li>Mini map in the bottom-right shows your position in the full file</li>
-        <li>Pages should tell you where different sections live</li>
+      <h2>Further Reading</h2>
+      <ul className="resources-list">
+        <li>
+          <a href="https://help.figma.com/hc/en-us/articles/360041064173" target="_blank" rel="noopener noreferrer">
+            <strong>Full Figma keyboard shortcuts reference</strong>
+          </a>{' '}
+          — the complete list when you're ready for it.
+        </li>
       </ul>
-
-      <p>With navigation sorted, the concepts below are what make Figma actually readable.</p>
     </PageLayout>
   )
 }

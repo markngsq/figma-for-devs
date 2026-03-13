@@ -5,50 +5,44 @@ const sections = [
   {
     path: '/what-is-figma',
     num: '01',
-    title: 'What Figma Actually Is',
-    desc: 'The three surfaces — Design, FigJam, and Slides. What Figma is and isn\'t.',
+    title: 'What Is Figma & Why Devs Need It',
+    desc: 'The mental models transfer almost directly. Roles, pricing, and the one surface that matters.',
   },
   {
     path: '/getting-around',
     num: '02',
-    title: 'Getting Around Figma Design',
-    desc: 'Panels, pages, frames vs groups, toolbar, keyboard shortcuts.',
+    title: 'Getting Around Figma',
+    desc: 'The three traps developers fall into in their first hour — and the shortcuts that get you out.',
   },
   {
     path: '/core-concepts',
     num: '03',
     title: 'Core Design Concepts',
-    desc: 'Auto Layout (think: flexbox), components, styles and variables, constraints.',
-  },
-  {
-    path: '/adjacent-tools',
-    num: '04',
-    title: 'Key Adjacent Tools',
-    desc: 'FigJam for whiteboarding, Slides for presenting, Prototyping for behaviour.',
+    desc: 'Auto Layout is CSS flexbox. Components are React components. Here\'s the full translation.',
   },
   {
     path: '/developer-mode',
+    num: '04',
+    title: 'Dev Mode',
+    desc: 'The read-only interface built for implementation. Inspect values, check Ready for Dev status, use focus view.',
+  },
+  {
+    path: '/code-panel',
     num: '05',
-    title: 'Developer Mode',
-    desc: 'Inspect components, read spacing values, and copy exact CSS properties without editing anything.',
+    title: 'Reading & Using the Code Panel',
+    desc: 'What the generated CSS is actually telling you — and where to ignore it. Plus Code Connect and asset export.',
   },
   {
-    path: '/code-export',
+    path: '/clean-handoff',
     num: '06',
-    title: 'Code Export & Working with Code',
-    desc: 'Copy hex values, export assets, read CSS output, and understand how design tokens map to code.',
+    title: 'Clean Handoff',
+    desc: 'What to do when you receive a file — good or bad. The questions worth asking before you start building.',
   },
   {
-    path: '/best-practices',
+    path: '/ai-workflows',
     num: '07',
-    title: 'Best Practices for Clean Handoff',
-    desc: 'Layer naming, Auto Layout discipline, and the checklist that makes handoff not a nightmare.',
-  },
-  {
-    path: '/vibe-coding',
-    num: '08',
-    title: 'AI Tools & Vibe Coding Workflow',
-    desc: 'From Figma to working code in hours. The workflow, the tools, and the honest caveats.',
+    title: 'AI-Powered Workflows',
+    desc: 'MCP workflow and screenshot workflow. From Figma to working code, with honest caveats about where AI falls short.',
   },
 ]
 
@@ -58,14 +52,14 @@ export default function Home() {
       <div className="home-hero">
         <h1>Figma for Devs</h1>
         <p>
-          A practical guide for developers making the transition into product design.
+          A practical guide for developers working with design files.
           Written to be read, not watched.
         </p>
       </div>
 
       <p style={{ color: 'var(--text-muted)', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-        If you already understand components, variables, and CSS flexbox — you're closer to
-        knowing Figma than you think. This guide fills the gaps without the beginner hand-holding.
+        If you understand components, variables, and CSS flexbox — you already know 80% of Figma.
+        This guide fills the gaps without the beginner hand-holding.
       </p>
 
       <hr className="section-divider" />
