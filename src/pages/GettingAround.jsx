@@ -1,9 +1,14 @@
 import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import GoDeeper from '../components/GoDeeper'
+
+const resources = [
+  { type: 'video', title: 'Figma for Developers — Frontend Masters / Steve Kinney', url: 'https://frontendmasters.com/courses/figma-v2/', note: 'Interface tour framed entirely in developer terms. Paid course but the opening module is the interface walkthrough.' },
+  { type: 'article', title: 'Navigating UI3 — Figma Help Center', url: 'https://help.figma.com/hc/en-us/articles/23954856027159-Navigating-UI3-Figma-s-new-UI', note: "Essential if older tutorials show a different interface — Figma redesigned their UI in 2024." },
+]
 
 const toc = [
   { id: 'three-traps',      label: 'The Three Traps',         level: 2 },
-  { id: 'shortcuts',        label: 'Essential Shortcuts',     level: 2 },
   { id: 'pages-frames',     label: 'Pages, Frames & Groups',  level: 2 },
 ]
 
@@ -14,7 +19,7 @@ export default function GettingAround() {
         <div className="page-badge">02 — Navigation</div>
         <h1>Getting Around Figma</h1>
         <p className="page-subtitle">
-          Three traps, eight shortcuts, and the frames-vs-groups distinction you need to know.
+          Three traps and the frames-vs-groups distinction you need to know.
         </p>
       </div>
 
@@ -68,38 +73,6 @@ export default function GettingAround() {
 
       <hr className="section-divider" />
 
-      <h2 id="shortcuts">
-        Essential Shortcuts — Learn These, Skip the Rest
-        <a className="heading-anchor" href="#shortcuts" aria-hidden="true">#</a>
-      </h2>
-
-      <table className="data-table">
-        <thead>
-          <tr>
-            <th>Action</th>
-            <th>Mac</th>
-            <th>Windows</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Zoom to fit page</td><td>Shift+1</td><td>Shift+1</td></tr>
-          <tr><td>Zoom to selection</td><td>Shift+2</td><td>Shift+2</td></tr>
-          <tr><td>Zoom in / out</td><td>Cmd++ / Cmd+–</td><td>Ctrl++ / Ctrl+–</td></tr>
-          <tr><td>Hand tool (pan)</td><td>Space+drag</td><td>Space+drag</td></tr>
-          <tr><td>Command palette</td><td>Cmd+/</td><td>Ctrl+/</td></tr>
-          <tr><td>Select all</td><td>Cmd+A</td><td>Ctrl+A</td></tr>
-          <tr><td>Toggle Dev Mode</td><td>Cmd+Opt+D</td><td>Ctrl+Alt+D</td></tr>
-          <tr><td>Show/hide layers panel</td><td>Cmd+\</td><td>Ctrl+\</td></tr>
-        </tbody>
-      </table>
-
-      <p>
-        Don't try to memorise Figma's full shortcut list on day one. These eight are enough to stay
-        unblocked.
-      </p>
-
-      <hr className="section-divider" />
-
       <h2 id="pages-frames">
         Pages vs Frames vs Groups — and Why It Matters
         <a className="heading-anchor" href="#pages-frames" aria-hidden="true">#</a>
@@ -144,6 +117,7 @@ export default function GettingAround() {
           — the complete list when you're ready for it.
         </li>
       </ul>
+      <GoDeeper resources={resources} />
     </PageLayout>
   )
 }

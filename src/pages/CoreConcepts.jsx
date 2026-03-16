@@ -1,5 +1,11 @@
 import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import GoDeeper from '../components/GoDeeper'
+
+const resources = [
+  { type: 'video', title: 'MASTER Auto Layout in Figma — YouTube (Jan 2026)', url: 'https://www.youtube.com/watch?v=nN0J7YrfZ10', note: 'Explicitly bridges Auto Layout to CSS flexbox — built for developers who already understand flex-direction, justify-content, align-items.' },
+  { type: 'article', title: 'Auto Layout — Figma for Developers / Steve Kinney', url: 'https://stevekinney.com/courses/figma/auto-layout', note: 'Concise written reference mapping every Auto Layout control to its CSS equivalent.' },
+]
 
 const toc = [
   { id: 'auto-layout',      label: 'Auto Layout',                     level: 2 },
@@ -214,6 +220,7 @@ export default function CoreConcepts() {
           — the official announcement post, good conceptual overview.
         </li>
       </ul>
+      <GoDeeper resources={resources} />
     </PageLayout>
   )
 }

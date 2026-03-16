@@ -4,9 +4,9 @@ const sections = [
   { path: '/what-is-figma',   label: 'What Is Figma & Why Devs Need It',  num: '01' },
   { path: '/getting-around',  label: 'Getting Around Figma',               num: '02' },
   { path: '/core-concepts',   label: 'Core Design Concepts',               num: '03' },
-  { path: '/developer-mode',  label: 'Dev Mode',                           num: '04' },
-  { path: '/code-panel',      label: 'Reading & Using the Code Panel',     num: '05' },
-  { path: '/clean-handoff',   label: 'Clean Handoff',                      num: '06' },
+  { path: '/clean-handoff',   label: 'Clean Handoff',                      num: '04' },
+  { path: '/developer-mode',  label: 'Dev Mode',                           num: '05' },
+  { path: '/code-panel',      label: 'Reading & Using the Code Panel',     num: '06' },
   { path: '/ai-workflows',    label: 'AI-Powered Workflows',               num: '07' },
 ]
 
@@ -21,20 +21,6 @@ export default function Sidebar({ onClose }) {
             <div className="sidebar-tagline">A practical guide</div>
           </div>
         </Link>
-      </div>
-
-      <div className="sidebar-search">
-        <div className="search-input-wrapper">
-          <span className="search-icon">⌕</span>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Search..."
-            aria-label="Search documentation"
-            readOnly
-          />
-          <span className="search-kbd">⌘K</span>
-        </div>
       </div>
 
       <nav className="sidebar-nav" aria-label="Main navigation">

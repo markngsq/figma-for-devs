@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import GoDeeper from '../components/GoDeeper'
+
+const resources = [
+  { type: 'video', title: 'Figma MCP + Cursor — Full Tutorial (Jun 2025)', url: 'https://www.youtube.com/watch?v=PPqt_xLg_5c', note: 'End-to-end walkthrough from Figma frame to generated code in an AI IDE.' },
+  { type: 'article', title: 'Introducing our Dev Mode MCP Server — Figma Blog', url: 'https://www.figma.com/blog/introducing-figma-mcp-server/', note: "Official explanation of how the MCP server works and why it's architecturally different from prior code export." },
+]
 
 const toc = [
   { id: 'mcp-workflow',        label: 'MCP Workflow (Current)',       level: 2 },
@@ -285,6 +291,7 @@ export default function AiWorkflows() {
           — generating designs from code.
         </li>
       </ul>
+      <GoDeeper resources={resources} />
     </PageLayout>
   )
 }

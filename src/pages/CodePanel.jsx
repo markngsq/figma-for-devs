@@ -1,5 +1,11 @@
 import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import GoDeeper from '../components/GoDeeper'
+
+const resources = [
+  { type: 'video', title: 'Drive Design System Adoption with Code Connect — Config 2024 / Figma', url: 'https://www.youtube.com/watch?v=RvFSyxAWriw', note: 'Straight from Figma engineers — explains Code Connect concept, CLI setup, and how it links your component library to Dev Mode.' },
+  { type: 'article', title: 'What is Figma Code Connect and How to Use It — Supernova', url: 'https://www.supernova.io/blog/what-is-figma-code-connect-and-how-to-use-it', note: 'Practical CLI setup for React with clear explanation of when Code Connect beats raw code snippets.' },
+]
 
 const toc = [
   { id: 'where-to-find',    label: 'Where to Find It',         level: 2 },
@@ -14,7 +20,7 @@ export default function CodePanel() {
   return (
     <PageLayout toc={toc}>
       <div className="page-header">
-        <div className="page-badge">05 — Code Panel</div>
+        <div className="page-badge">06 — Code Panel</div>
         <h1>Reading & Using the Code Panel</h1>
         <p className="page-subtitle">
           The generated code is a specification, not a template. Read it to understand intent.
@@ -201,6 +207,7 @@ background: #2563EB;`}</code></pre>
           — programmatic access to file data, useful for tooling and automation.
         </li>
       </ul>
+      <GoDeeper resources={resources} />
     </PageLayout>
   )
 }

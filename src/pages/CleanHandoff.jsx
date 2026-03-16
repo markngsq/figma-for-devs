@@ -1,5 +1,11 @@
 import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import GoDeeper from '../components/GoDeeper'
+
+const resources = [
+  { type: 'video', title: 'Design to Developer Handoff in Figma — YouTube (Aug 2025)', url: 'https://www.youtube.com/watch?v=ALkqhXv0GPk', note: 'Covers accessibility annotations, reading order, and what makes a handoff engineers actually use.' },
+  { type: 'article', title: 'Guide to Developer Handoff — Figma Best Practices', url: 'https://www.figma.com/best-practices/guide-to-developer-handoff/', note: "Figma's canonical reference — covers readiness signals, component specs, annotations." },
+]
 
 const toc = [
   { id: 'good-file',         label: 'What a Good File Looks Like', level: 2 },
@@ -11,7 +17,7 @@ export default function CleanHandoff() {
   return (
     <PageLayout toc={toc}>
       <div className="page-header">
-        <div className="page-badge">06 — Handoff</div>
+        <div className="page-badge">04 — Handoff</div>
         <h1>Clean Handoff</h1>
         <p className="page-subtitle">
           What to check when you receive a file — and what to ask before you start building.
@@ -165,6 +171,7 @@ export default function CleanHandoff() {
           — overview of handoff workflows and best practices.
         </li>
       </ul>
+      <GoDeeper resources={resources} />
     </PageLayout>
   )
 }

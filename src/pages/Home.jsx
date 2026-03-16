@@ -21,22 +21,22 @@ const sections = [
     desc: 'Auto Layout is CSS flexbox. Components are React components. Here\'s the full translation.',
   },
   {
-    path: '/developer-mode',
+    path: '/clean-handoff',
     num: '04',
+    title: 'Clean Handoff',
+    desc: 'What to do when you receive a file — good or bad. The questions worth asking before you start building.',
+  },
+  {
+    path: '/developer-mode',
+    num: '05',
     title: 'Dev Mode',
     desc: 'The read-only interface built for implementation. Inspect values, check Ready for Dev status, use focus view.',
   },
   {
     path: '/code-panel',
-    num: '05',
+    num: '06',
     title: 'Reading & Using the Code Panel',
     desc: 'What the generated CSS is actually telling you — and where to ignore it. Plus Code Connect and asset export.',
-  },
-  {
-    path: '/clean-handoff',
-    num: '06',
-    title: 'Clean Handoff',
-    desc: 'What to do when you receive a file — good or bad. The questions worth asking before you start building.',
   },
   {
     path: '/ai-workflows',

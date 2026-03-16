@@ -1,5 +1,11 @@
 import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import GoDeeper from '../components/GoDeeper'
+
+const resources = [
+  { type: 'video', title: 'Intro to Figma for Developers — Scrimba / Bob Ziroll', url: 'https://www.youtube.com/watch?v=ybc2gkvjMDs', note: 'Dev-framed crash course — no design fluff, just the developer-relevant bits.' },
+  { type: 'article', title: 'How I Use Figma as a Front-End Developer — Medium / Ibraheem Rawlinson', url: 'https://medium.com/@ibraheemr/how-i-use-figma-as-a-front-end-developer-and-why-its-a-game-changer-for-solo-builders-219239340d44', note: 'First-person dev perspective on Figma as a communication tool, written July 2025.' },
+]
 
 const toc = [
   { id: 'cloud-native',      label: 'Cloud-Native by Design',  level: 2 },
@@ -102,6 +108,7 @@ export default function WhatIsFigma() {
           — an interactive tutorial you can duplicate and explore.
         </li>
       </ul>
+      <GoDeeper resources={resources} />
     </PageLayout>
   )
 }

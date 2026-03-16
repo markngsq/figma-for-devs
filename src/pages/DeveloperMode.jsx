@@ -1,5 +1,11 @@
 import PageLayout from '../components/PageLayout'
 import Callout from '../components/Callout'
+import GoDeeper from '../components/GoDeeper'
+
+const resources = [
+  { type: 'video', title: 'Figma Dev Mode — YouTube (Feb 2024)', url: 'https://www.youtube.com/watch?v=a7vr6z0MVYw', note: 'Practical walkthrough of the actual developer inspection workflow.' },
+  { type: 'article', title: 'Guide to Dev Mode — Figma Help Center', url: 'https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode', note: 'The authoritative reference — seats, panels, code snippets, annotations.' },
+]
 
 const toc = [
   { id: 'switching',        label: 'How to Switch',           level: 2 },
@@ -14,7 +20,7 @@ export default function DeveloperMode() {
   return (
     <PageLayout toc={toc}>
       <div className="page-header">
-        <div className="page-badge">04 — Dev Mode</div>
+        <div className="page-badge">05 — Dev Mode</div>
         <h1>Dev Mode</h1>
         <p className="page-subtitle">
           The read-only interface built for implementation. Use this, not Design Mode.
@@ -174,6 +180,7 @@ export default function DeveloperMode() {
           — official video series walking through Dev Mode end-to-end.
         </li>
       </ul>
+      <GoDeeper resources={resources} />
     </PageLayout>
   )
 }
